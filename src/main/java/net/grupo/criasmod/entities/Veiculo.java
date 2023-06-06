@@ -129,6 +129,7 @@ public abstract class Veiculo extends Mob {
             if(entity instanceof LivingEntity) {
 
                 entity.setInvisible(true);
+
                 return (LivingEntity)entity;
 
             }
