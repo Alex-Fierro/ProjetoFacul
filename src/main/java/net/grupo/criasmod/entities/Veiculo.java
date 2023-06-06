@@ -104,13 +104,6 @@ public abstract class Veiculo extends Mob {
                     this.deltaRotation = deltaRotation + 0.3f;
                 }
 
-                if(livingentity.xxa == 0) {
-                    if(this.deltaRotation > 0) {
-                        this.deltaRotation = deltaRotation - 0.6f;
-                    } else if (this.deltaRotation < 0) {
-                        this.deltaRotation = deltaRotation + 0.6f;
-                    }
-                }
 
                 if (livingentity.zza == 0 && f != 0) {
                     f = f - 0.005F;
@@ -118,7 +111,7 @@ public abstract class Veiculo extends Mob {
 
                 this.setYRot(this.getYRot() + this.deltaRotation);
                 if (livingentity.zza > 0) {
-                    f += 0.2F;
+                    f = f + 0.2F;
                 }
 
                 if (livingentity.zza < 0) {
@@ -134,7 +127,9 @@ public abstract class Veiculo extends Mob {
         if (this.isAlive()) {
             Entity entity = this.getFirstPassenger();
             if(entity instanceof LivingEntity) {
+
                 entity.setInvisible(true);
+                return (LivingEntity)entity;
 
             }
         }

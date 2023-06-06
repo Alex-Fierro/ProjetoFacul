@@ -29,7 +29,6 @@ public class PexeEntity extends Dolphin implements GeoEntity {
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
         this.goalSelector.addGoal(0, new MeleeAttackGoal(this,(double)1.2F, true));
         this.goalSelector.addGoal(5, new DolphinJumpGoal(this, 10));
-
     }
 
     public static AttributeSupplier setAttributes() {
