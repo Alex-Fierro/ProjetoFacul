@@ -59,7 +59,7 @@ public abstract class Veiculo extends Mob {
             entity.setPos(this.getX() + (double) (f1 * f3) + 0.6D, this.getY() + this.getPassengersRidingOffset() + entity.getMyRidingOffset() + (double) f2 - 1.0D, this.getZ() - (double) (f1 * f));
             if(entity instanceof LivingEntity) {
                 ((LivingEntity)entity).yBodyRot = this.yBodyRot;
-                entity.setYRot(this.getYRot());
+                //entity.setYRot(this.getYRot());
             }
         }
 
