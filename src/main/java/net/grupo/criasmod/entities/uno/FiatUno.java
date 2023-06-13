@@ -1,6 +1,8 @@
 package net.grupo.criasmod.entities.uno;
 
 import net.grupo.criasmod.entities.Veiculo;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -19,6 +21,7 @@ public class FiatUno extends Veiculo implements GeoEntity {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     private boolean isTransformed = false;
+
 
     public FiatUno(EntityType<? extends Mob> entityType, Level level) {
         super(entityType, level);
@@ -43,6 +46,7 @@ public class FiatUno extends Veiculo implements GeoEntity {
     private <T extends GeoAnimatable> PlayState mode_predicate(AnimationState<T> animationState) {
         if(isTransformed == true) {
             animationState.getController().setAnimation(RawAnimation.begin().then("animation.fiatuno.2offroad", Animation.LoopType.HOLD_ON_LAST_FRAME));
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal(String.valueOf(standAnimO)));
             return PlayState.CONTINUE;
         } else {
             animationState.getController().setAnimation(RawAnimation.begin().then("animation.fiatuno.2normal", Animation.LoopType.HOLD_ON_LAST_FRAME));

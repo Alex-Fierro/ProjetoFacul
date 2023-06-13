@@ -1,6 +1,7 @@
 package net.grupo.criasmod.entities.events;
 
 import net.grupo.criasmod.CriasMod;
+import net.grupo.criasmod.entities.Veiculo;
 import net.grupo.criasmod.entities.uno.FiatUno;
 import net.grupo.criasmod.util.KeyBindings;
 import net.minecraft.client.Minecraft;
@@ -20,6 +21,7 @@ public class ClientEvents {
         @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
             Player player = Minecraft.getInstance().player;
+
 
             var minecraft = Minecraft.getInstance();
             if(KeyBindings.TRANSFORM_KEY.consumeClick() && player.isPassenger()) {

@@ -13,17 +13,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.internal.TextComponentMessageFormatHandler;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.text.JTextComponent;
-import java.awt.*;
 
 public abstract class Veiculo extends Mob {
 
-    private float standAnimO = -0.5f;
+    protected float standAnimO = -0.5f;
     private float deltaRotation;
-
 
     protected Veiculo(EntityType<? extends Mob> entityType, Level level) {
         super(entityType, level);
@@ -77,7 +73,7 @@ public abstract class Veiculo extends Mob {
                         this.controll();
                     } catch (NullPointerException e) {
                         String message = "Internal Exception: " + e.toString();
-                        String message2 = "Aconteceu uma exceção, não posso verificar .xxa porque livingentity é null";
+                        String message2 = "Aconteceu uma exceção, não posso verificar .zza porque livingentity é null";
                         String message3 = "Crashou pq vc é BURRO";
                         //Minecraft.getInstance().player.sendSystemMessage(Component.literal(message));
                         Minecraft.getInstance().player.connection.handleDisconnect(new ClientboundDisconnectPacket(Component.literal(message3)));
