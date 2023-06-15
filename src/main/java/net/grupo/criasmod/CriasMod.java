@@ -3,6 +3,10 @@ package net.grupo.criasmod;
 import com.mojang.logging.LogUtils;
 import net.grupo.criasmod.entities.ModEntities;
 import net.grupo.criasmod.entities.aranha.AranhaRenderer;
+import net.grupo.criasmod.entities.fiatunovermelho.UnoVermelhoRenderer;
+import net.grupo.criasmod.entities.golem.Golem;
+import net.grupo.criasmod.entities.golem.GolemRenderer;
+import net.grupo.criasmod.entities.t_rex.T_Rex_Renderer;
 import net.grupo.criasmod.entities.uno.UnoRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
@@ -55,7 +59,10 @@ public class CriasMod {
         public static void onClientSetup(FMLClientSetupEvent event) {
 
             EntityRenderers.register(ModEntities.UNO.get(), UnoRenderer::new);
+            EntityRenderers.register(ModEntities.UNOVERMELHO.get(), UnoVermelhoRenderer::new);
             EntityRenderers.register(ModEntities.ARANHA.get(), AranhaRenderer::new);
+            EntityRenderers.register(ModEntities.TREX.get(), T_Rex_Renderer::new);
+            EntityRenderers.register(ModEntities.GOLEM.get(), GolemRenderer::new);
         }
     }
 }

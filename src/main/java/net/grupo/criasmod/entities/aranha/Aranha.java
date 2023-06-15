@@ -60,7 +60,6 @@ public class Aranha extends Spider implements GeoEntity {
         } else {
             animationState.getController().setAnimation(RawAnimation.begin().then("animation.model.parada", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
-
         }
     }
 

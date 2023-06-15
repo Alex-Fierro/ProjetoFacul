@@ -3,6 +3,9 @@ package net.grupo.criasmod.entities.events;
 import net.grupo.criasmod.CriasMod;
 import net.grupo.criasmod.entities.ModEntities;
 import net.grupo.criasmod.entities.aranha.Aranha;
+import net.grupo.criasmod.entities.fiatunovermelho.FiatUnoVermelho;
+import net.grupo.criasmod.entities.golem.Golem;
+import net.grupo.criasmod.entities.t_rex.T_Rex_Entity;
 import net.grupo.criasmod.entities.uno.FiatUno;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -32,5 +35,8 @@ public class ModEvents {
     public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
         event.put(ModEntities.UNO.get(), FiatUno.setAttributes());
         event.put(ModEntities.ARANHA.get(), Aranha.setAttributes());
+        event.put(ModEntities.UNOVERMELHO.get(), FiatUnoVermelho.setAttributes());
+        event.put(ModEntities.TREX.get(), T_Rex_Entity.setAttributes());
+        event.put(ModEntities.GOLEM.get(), Golem.setAttributes());
     }
 }

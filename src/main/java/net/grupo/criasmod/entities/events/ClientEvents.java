@@ -2,6 +2,7 @@ package net.grupo.criasmod.entities.events;
 
 import net.grupo.criasmod.CriasMod;
 import net.grupo.criasmod.entities.Veiculo;
+import net.grupo.criasmod.entities.fiatunovermelho.FiatUnoVermelho;
 import net.grupo.criasmod.entities.uno.FiatUno;
 import net.grupo.criasmod.util.KeyBindings;
 import net.minecraft.client.Minecraft;
@@ -35,6 +36,19 @@ public class ClientEvents {
                         } else {
                             //Minecraft.getInstance().player.sendSystemMessage(Component.literal("OFFROAD"));
                             fiatUno.setTransformado(true);
+                        }
+                    }
+                }
+                if(player.getVehicle() instanceof FiatUnoVermelho) {
+                    Entity montaria = player.getVehicle();
+                    if(montaria instanceof FiatUnoVermelho) {
+                        FiatUnoVermelho fiatUnoVermelho = (FiatUnoVermelho) montaria;
+                        if(fiatUnoVermelho.getTransformado() == true) {
+                            //Minecraft.getInstance().player.sendSystemMessage(Component.literal("NORMAL"));
+                            fiatUnoVermelho.setTransformado(false);
+                        } else {
+                            //Minecraft.getInstance().player.sendSystemMessage(Component.literal("OFFROAD"));
+                            fiatUnoVermelho.setTransformado(true);
                         }
                     }
                 }
