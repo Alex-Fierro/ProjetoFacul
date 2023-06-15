@@ -2,6 +2,7 @@ package net.grupo.criasmod.entities.events;
 
 import net.grupo.criasmod.CriasMod;
 import net.grupo.criasmod.entities.ModEntities;
+import net.grupo.criasmod.entities.aranha.Aranha;
 import net.grupo.criasmod.entities.uno.FiatUno;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -30,5 +31,6 @@ public class ModEvents {
     @SubscribeEvent
     public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
         event.put(ModEntities.UNO.get(), FiatUno.setAttributes());
+        event.put(ModEntities.ARANHA.get(), Aranha.setAttributes());
     }
 }

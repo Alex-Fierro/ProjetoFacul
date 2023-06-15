@@ -1,6 +1,7 @@
 package net.grupo.criasmod.entities;
 
 import net.grupo.criasmod.CriasMod;
+import net.grupo.criasmod.entities.aranha.Aranha;
 import net.grupo.criasmod.entities.uno.FiatUno;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -21,6 +22,12 @@ public class ModEntities {
                     () -> EntityType.Builder.of(FiatUno::new, MobCategory.CREATURE)
                             .sized(1.8f, 1.8f)
                             .build(new ResourceLocation(CriasMod.MOD_ID, "fiatuno").toString()));
+
+    public static final RegistryObject<EntityType<Aranha>> ARANHA =
+            ENTITY_TYPES.register("aranha",
+                    () -> EntityType.Builder.of(Aranha::new, MobCategory.CREATURE)
+                            .sized(1.0f, 1.0f)
+                            .build(new ResourceLocation(CriasMod.MOD_ID, "aranha").toString()));
 
 
     public static void register(IEventBus eventBus) {

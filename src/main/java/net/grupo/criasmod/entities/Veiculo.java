@@ -1,7 +1,7 @@
 package net.grupo.criasmod.entities;
 
-import net.grupo.criasmod.Exception.GuiErrorScreen;
 import net.minecraft.client.Minecraft;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundDisconnectPacket;
 import net.minecraft.util.Mth;
@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class Veiculo extends Mob {
 
-    protected float standAnimO = -0.5f;
+    protected float posicaoPlayer = -0.5f;
     private float deltaRotation;
 
     protected Veiculo(EntityType<? extends Mob> entityType, Level level) {
@@ -47,17 +47,17 @@ public abstract class Veiculo extends Mob {
             this.yBodyRot = mob.yBodyRot;
         }
 
-        if(this.standAnimO < 0.0F) {
+
             float f3 = Mth.sin(this.yBodyRot * ((float)Math.PI / 180F));
             float f = Mth.cos(this.yBodyRot * ((float)Math.PI / 180F));
-            float f1 = 0.7F * this.standAnimO;
-            float f2 = 0.15F * this.standAnimO;
+            float f1 = 0.7F * this.posicaoPlayer;
+            float f2 = 0.15F * this.posicaoPlayer;
             entity.setPos(this.getX() + (double) (f1 * f3) + 0.6D, this.getY() + this.getPassengersRidingOffset() + entity.getMyRidingOffset() + (double) f2 - 1.0D, this.getZ() - (double) (f1 * f));
             if(entity instanceof LivingEntity) {
                 ((LivingEntity)entity).yBodyRot = this.yBodyRot;
-                //entity.setYRot(this.getYRot());
+                //entity.setYRot(this.getYRot()); faz o player girar junto com o veículo
             }
-        }
+
 
     }
 
@@ -70,14 +70,14 @@ public abstract class Veiculo extends Mob {
             if(this.isVehicle()) {
                 if(this.level.isClientSide) {
                     try {
-                        this.controll();
+                        this.controlar();
                     } catch (NullPointerException e) {
                         String message = "Internal Exception: " + e.toString();
                         String message2 = "Aconteceu uma exceção, não posso verificar .zza porque livingentity é null";
                         String message3 = "Crashou pq vc é BURRO";
-                        //Minecraft.getInstance().player.sendSystemMessage(Component.literal(message));
+                        //Minecraft.getInstance().player.sendSystemMessage(Component.literal(message)); manda uma mensagem no chat
                         Minecraft.getInstance().player.connection.handleDisconnect(new ClientboundDisconnectPacket(Component.literal(message3)));
-                        //Minecraft.getInstance().setScreen(new GuiErrorScreen(message));
+                        //Minecraft.getInstance().setScreen(new GuiErrorScreen(message)); faz uma tela customizada
                     }
                 }
             }
@@ -85,17 +85,17 @@ public abstract class Veiculo extends Mob {
     }
 
 
-    private void controll() {
+    private void controlar() {
             LivingEntity livingentity = this.getControllingPassenger();
             if(this.isAlive()) {
                 float f = 0.0F;
 
-                if (livingentity.xxa > 0 && deltaRotation > (-10)) {
+                if(livingentity.xxa > 0 && deltaRotation > (-10)) {
                     //Minecraft.getInstance().player.sendSystemMessage(Component.literal("LEFT"));
                     this.deltaRotation = deltaRotation - 0.3f;
                 }
 
-                if (livingentity.xxa < 0  && deltaRotation < 10) {
+                if(livingentity.xxa < 0  && deltaRotation < 10) {
                     //Minecraft.getInstance().player.sendSystemMessage(Component.literal("RIGHT"));
                     this.deltaRotation = deltaRotation + 0.3f;
                 }
@@ -106,8 +106,12 @@ public abstract class Veiculo extends Mob {
                 }
 
                 this.setYRot(this.getYRot() + this.deltaRotation);
-                if (livingentity.zza > 0) {
-                    f = f + 0.2F;
+                if(livingentity.zza > 0) {
+                    if(livingentity.isSprinting()) {
+                        f = f + 0.2F;
+                    } else {
+                        f = f + 0.2F;
+                    }
                 }
 
                 if (livingentity.zza < 0) {
@@ -134,4 +138,5 @@ public abstract class Veiculo extends Mob {
         return null;
     }
 
+    
 }

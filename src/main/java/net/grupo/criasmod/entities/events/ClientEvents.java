@@ -29,17 +29,16 @@ public class ClientEvents {
                     Entity montaria = player.getVehicle();
                     if(montaria instanceof FiatUno) {
                         FiatUno fiatUno = (FiatUno) montaria;
-                        if(fiatUno.getIsTransformed() == true) {
+                        if(fiatUno.getTransformado() == true) {
                             //Minecraft.getInstance().player.sendSystemMessage(Component.literal("NORMAL"));
-                            fiatUno.setIsTransformed(false);
+                            fiatUno.setTransformado(false);
                         } else {
                             //Minecraft.getInstance().player.sendSystemMessage(Component.literal("OFFROAD"));
-                            fiatUno.setIsTransformed(true);
+                            fiatUno.setTransformado(true);
                         }
                     }
                 }
             }
-
         }
 
 

@@ -2,6 +2,7 @@ package net.grupo.criasmod;
 
 import com.mojang.logging.LogUtils;
 import net.grupo.criasmod.entities.ModEntities;
+import net.grupo.criasmod.entities.aranha.AranhaRenderer;
 import net.grupo.criasmod.entities.uno.UnoRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
@@ -54,7 +55,7 @@ public class CriasMod {
         public static void onClientSetup(FMLClientSetupEvent event) {
 
             EntityRenderers.register(ModEntities.UNO.get(), UnoRenderer::new);
-
+            EntityRenderers.register(ModEntities.ARANHA.get(), AranhaRenderer::new);
         }
     }
 }
