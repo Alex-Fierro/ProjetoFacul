@@ -4,6 +4,7 @@ import net.grupo.criasmod.CriasMod;
 import net.grupo.criasmod.entities.aranha.Aranha;
 import net.grupo.criasmod.entities.fiatunovermelho.FiatUnoVermelho;
 import net.grupo.criasmod.entities.golem.Golem;
+import net.grupo.criasmod.entities.spirittree.SpiritCuteTreeEntity;
 import net.grupo.criasmod.entities.t_rex.T_Rex_Entity;
 import net.grupo.criasmod.entities.t_rex.T_Rex_Renderer;
 import net.grupo.criasmod.entities.uno.FiatUno;
@@ -50,6 +51,12 @@ public class ModEntities {
                     () -> EntityType.Builder.of(Golem::new, MobCategory.CREATURE)
                             .sized(2.5f, 3.0f)
                             .build(new ResourceLocation(CriasMod.MOD_ID, "golem").toString()));
+
+    public static final RegistryObject<EntityType<SpiritCuteTreeEntity>> SPIRITTREE =
+            ENTITY_TYPES.register("spirit",
+                    ()-> EntityType.Builder.of(SpiritCuteTreeEntity::new, MobCategory.CREATURE)
+                            .sized(0.8f, 0.8f).
+                            build(new ResourceLocation(CriasMod.MOD_ID, "spirit").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

@@ -18,19 +18,19 @@ public class FiatUno extends Veiculo implements GeoEntity {
 
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    private boolean Transformado = false;
+    private static boolean Transformado = false;
 
 
     public FiatUno(EntityType<? extends Mob> entityType, Level level) {
         super(entityType, level);
     }
 
-    public void setTransformado(boolean i) {
-        this.Transformado = i;
+    public static void setTransformado(boolean i) {
+        Transformado = i;
     }
 
-    public boolean getTransformado() {
-        return this.Transformado;
+    public static boolean getTransformado() {
+        return Transformado;
     }
 
     public static AttributeSupplier setAttributes() {

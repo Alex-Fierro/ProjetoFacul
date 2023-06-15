@@ -6,6 +6,7 @@ import net.grupo.criasmod.entities.aranha.AranhaRenderer;
 import net.grupo.criasmod.entities.fiatunovermelho.UnoVermelhoRenderer;
 import net.grupo.criasmod.entities.golem.Golem;
 import net.grupo.criasmod.entities.golem.GolemRenderer;
+import net.grupo.criasmod.entities.spirittree.SpiritCuteTreeRenderer;
 import net.grupo.criasmod.entities.t_rex.T_Rex_Renderer;
 import net.grupo.criasmod.entities.uno.UnoRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -63,6 +64,7 @@ public class CriasMod {
             EntityRenderers.register(ModEntities.ARANHA.get(), AranhaRenderer::new);
             EntityRenderers.register(ModEntities.TREX.get(), T_Rex_Renderer::new);
             EntityRenderers.register(ModEntities.GOLEM.get(), GolemRenderer::new);
+            EntityRenderers.register(ModEntities.SPIRITTREE.get(), SpiritCuteTreeRenderer::new);
         }
     }
 }

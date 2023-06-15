@@ -27,16 +27,12 @@ public class ClientEvents {
             var minecraft = Minecraft.getInstance();
             if(KeyBindings.TRANSFORM_KEY.consumeClick() && player.isPassenger()) {
                 if(player.getVehicle() instanceof FiatUno) {
-                    Entity montaria = player.getVehicle();
-                    if(montaria instanceof FiatUno) {
-                        FiatUno fiatUno = (FiatUno) montaria;
-                        if(fiatUno.getTransformado() == true) {
-                            //Minecraft.getInstance().player.sendSystemMessage(Component.literal("NORMAL"));
-                            fiatUno.setTransformado(false);
-                        } else {
-                            //Minecraft.getInstance().player.sendSystemMessage(Component.literal("OFFROAD"));
-                            fiatUno.setTransformado(true);
-                        }
+                    if(FiatUno.getTransformado() == true) {
+                        //Minecraft.getInstance().player.sendSystemMessage(Component.literal("NORMAL"));
+                        FiatUno.setTransformado(false);
+                    } else {
+                        //Minecraft.getInstance().player.sendSystemMessage(Component.literal("OFFROAD"));
+                        FiatUno.setTransformado(true);
                     }
                 }
                 if(player.getVehicle() instanceof FiatUnoVermelho) {

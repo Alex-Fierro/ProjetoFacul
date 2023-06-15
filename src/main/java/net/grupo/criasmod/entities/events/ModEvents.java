@@ -5,6 +5,7 @@ import net.grupo.criasmod.entities.ModEntities;
 import net.grupo.criasmod.entities.aranha.Aranha;
 import net.grupo.criasmod.entities.fiatunovermelho.FiatUnoVermelho;
 import net.grupo.criasmod.entities.golem.Golem;
+import net.grupo.criasmod.entities.spirittree.SpiritCuteTreeEntity;
 import net.grupo.criasmod.entities.t_rex.T_Rex_Entity;
 import net.grupo.criasmod.entities.uno.FiatUno;
 import net.minecraft.world.entity.player.Player;
@@ -38,5 +39,6 @@ public class ModEvents {
         event.put(ModEntities.UNOVERMELHO.get(), FiatUnoVermelho.setAttributes());
         event.put(ModEntities.TREX.get(), T_Rex_Entity.setAttributes());
         event.put(ModEntities.GOLEM.get(), Golem.setAttributes());
+        event.put(ModEntities.SPIRITTREE.get(), SpiritCuteTreeEntity.setAttributes());
     }
 }
